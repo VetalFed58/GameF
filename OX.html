@@ -1,0 +1,172 @@
+<html>
+<title>GameF</title>
+<link rel="shortcut icon" href="favicon.ico">
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+  width: 350px;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+li a.active {
+  color: white;
+  background-color: blue;
+}
+
+.alw {
+  font-family: verdana;
+  font-size: 100px;
+  text-decoration: none;
+  color: blue;
+}
+
+.norm {
+  font-family: verdana;
+  font-size: 30px;
+  text-decoration: none;
+  color: blue;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.field {
+    width: 85px;
+    height: 85px;
+}
+</style>
+</head>
+<body background="backgroundMain.jpg">
+  <center><a class="alw" href="GameF.html">GameF</a></center>
+  <center>
+    <ul>
+      <li><a class="active" href="GameF.html">Forum</a></li>
+      <li><a href="OX.html">Tic-tac-toe</a></li>
+      <li><a href="Gallery.html">Gallery</a></li>
+    </ul>
+  </center>
+  <p></p>
+  <center>
+  <table>
+  <tr>
+    <td><button class="field"></button></td>
+    <td><button class="field"></button></td>
+    <td><button class="field"></button></td>
+  </tr>
+  <tr>
+    <td><button class="field"></button></td>
+    <td><button class="field"></button></td>
+    <td><button class="field"></button></td>
+  </tr>
+	<tr>
+    <td><button class="field"></button></td>
+    <td><button class="field"></button></td>
+    <td><button class="field"></button></td>
+  </tr>
+  </table>
+  </center>
+  <script>
+ var arr;
+ var buttons;
+ var turn = "0";
+
+
+ function displayArray() {
+   for (var i = 0; i < arr.length; i++) {
+     for (var j = 0; j < arr[i].length; j++) {
+       buttons[i * 3 + j].innerHTML = arr[i][j];
+     }
+   }
+ }
+
+ function checkArray() {
+   changeTurn();
+   displayArray();
+   showWinner();
+ }
+
+ function changeTurn() {
+   if (turn == "X") {
+     turn = "0";
+   } else {
+     turn = "X";
+   }
+ }
+
+ function changePosition(i) {
+   var j = i % 3;
+   i = (i - j) / 3;
+   arr[i][j] = turn;
+   checkArray()
+ }
+
+ function showWinner() {
+   if ((arr[0][0] == "0" && arr[1][1] == "0" && arr[2][2] == "0") || (arr[0][1] == "0" && arr[1][1] == "0" && arr[2][1] == "0") || (arr[0][0] == "0" && arr[1][0] == "0" && arr[2][0] == "0") || (arr[0][2] == "0" && arr[1][2] == "0" && arr[2][2] == "0") || (arr[0][0] == "0" && arr[0][1] == "0" && arr[0][2] == "0") || (arr[1][0] == "0" && arr[1][1] == "0" && arr[1][2] == "0") || (arr[2][0] == "0" && arr[2][1] == "0" && arr[2, 2] == "0") || (arr[2][0] == "0" && arr[1][1] == "0" && arr[0][2] == "0")) {
+     alert("First player win");
+	 newGame();
+	 displayArray();
+	 if(turn=="X"){
+	 	turn = "0";
+	 }
+   }
+   if ((arr[0][0] == "X" && arr[1][1] == "X" && arr[2][2] =="X") || (arr[0][1] == "X" && arr[1][1] == "X" && arr[2][1] == "X") || (arr[0][0] == "X" && arr[1][0] == "X" && arr[2][0] == "X") || (arr[0][2] == "X" && arr[1][2] =="X" && arr[2][2] == "X") || (arr[0][0] == "X" && arr[0][1] == "X" && arr[0][2] == "X") || (arr[1][0] == "X" && arr[1][1] == "X" && arr[1][2] == "X") || (arr[2][0] == "X" && arr[2][1] == "X" && arr[2][2] == "X") || (arr[2][0] == "X" && arr[1][1] == "X" && arr[0][2] == "X")) {
+     alert("Second player win");
+	 newGame();
+	 displayArray();
+	 if(turn=="X"){
+	 	turn = "0";
+	 }
+   }
+ }
+
+ function clickOnBoard(e) {
+   console.log(e.target) 
+   for (var i = 0; i < buttons.length; i++) {
+     if (buttons[i] == e.target) {
+       changePosition(i);
+     }
+   }
+
+ }
+
+ function newGame() {
+   arr = [
+     ["", "", ""],
+     ["", "", ""],
+     ["", "", ""]
+   ];
+   }
+
+ function initGame() {
+   buttons = document.getElementsByClassName("field");
+   for (var i = 0; i < buttons.length; i++) {
+     buttons[i].addEventListener("click", clickOnBoard);
+	
+   }
+   newGame();
+ }
+ initGame()
+  </script>
+  </body>
+</html>
