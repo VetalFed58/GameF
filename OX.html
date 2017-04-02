@@ -10,7 +10,7 @@ ul {
   overflow: hidden;
   border: 1px solid #e7e7e7;
   background-color: #f3f3f3;
-  width: 350px;
+  width: 257px;
 }
 
 li {
@@ -89,13 +89,16 @@ table, th, td {
   <script>
  var arr;
  var buttons;
- var turn = "0";
+ var turn = "X";
 
 
  function displayArray() {
    for (var i = 0; i < arr.length; i++) {
      for (var j = 0; j < arr[i].length; j++) {
        buttons[i * 3 + j].innerHTML = arr[i][j];
+	   if (arr[i][j]) {
+			buttons[i * 3 + j].disabled = true;
+      }
      }
    }
  }
@@ -123,7 +126,7 @@ table, th, td {
 
  function showWinner() {
    if ((arr[0][0] == "0" && arr[1][1] == "0" && arr[2][2] == "0") || (arr[0][1] == "0" && arr[1][1] == "0" && arr[2][1] == "0") || (arr[0][0] == "0" && arr[1][0] == "0" && arr[2][0] == "0") || (arr[0][2] == "0" && arr[1][2] == "0" && arr[2][2] == "0") || (arr[0][0] == "0" && arr[0][1] == "0" && arr[0][2] == "0") || (arr[1][0] == "0" && arr[1][1] == "0" && arr[1][2] == "0") || (arr[2][0] == "0" && arr[2][1] == "0" && arr[2, 2] == "0") || (arr[2][0] == "0" && arr[1][1] == "0" && arr[0][2] == "0")) {
-     alert("First player win");
+     alert("0 win");
 	 newGame();
 	 displayArray();
 	 if(turn=="X"){
@@ -131,7 +134,7 @@ table, th, td {
 	 }
    }
    if ((arr[0][0] == "X" && arr[1][1] == "X" && arr[2][2] =="X") || (arr[0][1] == "X" && arr[1][1] == "X" && arr[2][1] == "X") || (arr[0][0] == "X" && arr[1][0] == "X" && arr[2][0] == "X") || (arr[0][2] == "X" && arr[1][2] =="X" && arr[2][2] == "X") || (arr[0][0] == "X" && arr[0][1] == "X" && arr[0][2] == "X") || (arr[1][0] == "X" && arr[1][1] == "X" && arr[1][2] == "X") || (arr[2][0] == "X" && arr[2][1] == "X" && arr[2][2] == "X") || (arr[2][0] == "X" && arr[1][1] == "X" && arr[0][2] == "X")) {
-     alert("Second player win");
+     alert("X win");
 	 newGame();
 	 displayArray();
 	 if(turn=="X"){
