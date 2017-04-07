@@ -4,35 +4,40 @@
 <head>
 <style>
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  border: 1px solid #e7e7e7;
-  background-color: #f3f3f3;
-  width: 255px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    top: 0;
+    width: 100%;
+}
+.fix{
+	position: fixed;
+}
+li {
+    float: left;
+	border-right:1px solid #bbb;
 }
 
-li {
-  float: left;
+li:last-child {
+    border-right: none;
 }
 
 li a {
-  display: block;
-  color: #666;
-  text-align: center;
-  padding: 12px 10px;
-  text-decoration: none;
-  font-family: verdana;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 li a:hover:not(.active) {
-  background-color: #ddd;
+    background-color: #111;
 }
 
-li a.active {
-  color: white;
-  background-color: blue;
+.active {
+    background-color: #4CAF50;
 }
 
 .alw {
@@ -52,19 +57,28 @@ li a.active {
 
 .wid {
   width: 500px;
-  background-color: #b36b00;
-  border: 1px solid #b36b00;
 }
-
+p{
+	font-family: verdana;
+}
+body {
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin:0;
+}
 </style>
 </head>
-<body background="backgroundMain.jpg">
+<body background="background.jpg">
+<br>
+<br>
   <center><a class="alw" href="index.html">GameF</a></center>
   <center>
-    <ul>
+    <ul class="fix">
       <li><a class="active" href="index.html">Forum</a></li>
       <li><a href="OX.html">Tic-tac-toe</a></li>
       <li><a href="Gallery.html">Gallery</a></li>
+	  <li style="float:right"><a href="#about">About</a></li>
     </ul>
   </center>
 </body>
