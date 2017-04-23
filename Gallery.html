@@ -13,7 +13,7 @@ ul {
     width: 100%;
 }
 .fix{
-	position: fixed;
+	position:fixed;
 }
 li {
     float: left;
@@ -34,6 +34,12 @@ li a {
 
 li a:hover:not(.active) {
     background-color: #111;
+        color: white;
+    text-decoration: none;
+}
+li a:hover.active {
+    color: white;
+    text-decoration: none;
 }
 
 .active {
@@ -70,8 +76,12 @@ body {
 	background-size: cover;
 	margin:0;
 }
+.wrapper{
+margin-top:50px;
+}
 </style>
 <link rel="stylesheet" type="text/css" media="screen" href="Zoom/zoom1.css" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <style type="text/css">
     a.fancybox img {
         border: none;
@@ -84,16 +94,14 @@ body {
 </style>
 </head>
 <body background="background.jpg">
-<br>
-<br>
-  <center><a class="main" href="index.html">GameF</a></center>
-  <center>
-    <ul class="fix">
+<div class="navbar  navbar-fixed-top">
+    <ul>
       <li><a class="active" href="index.html">Forum</a></li>
       <li><a href="OX.html">Tic-tac-toe</a></li>
       <li><a href="Media.html">Media</a></li>
     </ul>
-  </center>
+	</div>
+	<div class="wrapper">
   <center>
     <img src="Photos/hzd2.jpg" width="440" height="248" title="
  Horizon Zero Dawn;
@@ -178,6 +186,7 @@ body {
  Price: $19.99 USD/540 UAH;
  ">
   </center>
+  </div>
 <script type="text/javascript" src="Zoom/zoom2.js"></script>
 <script type="text/javascript" src="Zoom/zoom3.js"></script>
 <script type="text/javascript" src="Zoom/zoom4.js"></script>
